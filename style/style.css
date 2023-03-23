@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    transition: .3s;
+}
+body{
+    background-color: #bbbbbb;
+}
+section{
+    padding: 50px 2.5%;
+}
+button{
+    background: #4aabdf;
+    color: white;
+    font-weight: bold ;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+#details{
+    text-align: center;
+}
+
+#allCountries{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .7rem ;
+}
+#allCountries .country {
+    width: 20rem;
+    text-align: center;
+    padding: 1rem;
+    background-color: white;
+    border-radius: .5rem ;
+    box-shadow: 0 9px 15px -10px;
+}
+#allCountries .country .image {
+    height: 11rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+#allCountries .country .image img {
+    height: 100%;
+}
+.buttons{
+    text-align: center;
+    color: white;
+}
+.showMoreBtn{
+    padding: 7px 12px;
+    background-color: black;
+    border-radius: 5px;
+}
