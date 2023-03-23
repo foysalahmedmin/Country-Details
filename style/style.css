@@ -52,7 +52,7 @@ button{
     text-align: center;
     color: white;
 }
-.showMoreBtn{
+.showMoreBtn, .showLessBtn{
     padding: 7px 12px;
     background-color: black;
     border-radius: 5px;

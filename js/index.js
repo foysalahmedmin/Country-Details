@@ -25,31 +25,51 @@ const singleCountry = ({name, capital, flags, cca3}) => {
                 Name: ${name.common};
             </h3>
             <p> Capital: ${capital ? capital[0] : "No Capital"} </p>
-            <button onclick = "loadCountryDetails('${cca3}')"> Details </button>
+            <button onclick = "displayCountryDetails('${cca3}')"> Details </button>
         </div>`
     )
 
-}
-const loadCountryDetails = code =>{
-    const url = `https://restcountries.com/v2/alpha/${code}`
-    console.log(url);
-    fetch(url)
-    .then(res => res.json())
-    .then(data => displayCountryDetails(data)) ;
 }
 
 const displayCountryDetails = data => {
 
     const detailsField = document.getElementById("details");
-    console.log(data);
-
+    const thisCountry = allCountries.filter(singleCountry => singleCountry.cca3 == data)[0] ;
+    let {name, capital, flags} = thisCountry ;
+    console.log(thisCountry);
     detailsField.innerHTML = `
-    
-    <h2>Name: ${data.name}</h2>
-    <img src = ${data.flags.png}>
-    
+    <div>
+        <div class = "image"> <img src = "${flags.png}"> </div>
+        <h3>
+            Name: ${name.common};
+        </h3>
+        <p> Capital: ${capital ? capital[0] : "No Capital"} </p>
+    </div>
     `
 
+}
+
+document.getElementById("showMoreBtn").onclick = () => {
+    displayQuantity += 100 ;
+    if(displayQuantity >= allCountries.length){
+        document.getElementById("showMoreBtn").style.display = 'none' ;
+        document.getElementById("showLessBtn").style.display = 'inline-block' ;
+    }
+    displayCountry();
+}
+document.getElementById("showLessBtn").onclick = () => {
+    displayQuantity -= 100 ;
+    if(displayQuantity <= 6){
+        displayQuantity = 6 ;
+        document.getElementById("showMoreBtn").style.display = 'inline-block' ;
+        document.getElementById("showLessBtn").style.display = 'none' ;
+    }
+    displayCountry();
+}
+
+document.getElementById('continent').onchange = () =>{
+    const continentValue = document.getElementById('continent').value ;
+    console.log(continentValue);
 }
 
 loadCountry() ;
