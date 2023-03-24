@@ -40,15 +40,36 @@ document.getElementById('searchBtn').onclick = () =>{
 
 document.getElementById('continent').onchange = () =>{
     const continentValue = document.getElementById('continent').value ;
+    if(continentValue == "All"){
+        allCountriesShow = allCountries ;
+        displayCountry()
+        return ;
+    }
     allCountriesShow = allCountries.filter(singleCountry => singleCountry.continents[0] == continentValue);
     displayCountry();
 }
 
-// document.getElementById('continent').onchange = () =>{
-//     const continentValue = document.getElementById('continent').value ;
-//     allCountriesShow = allCountries.filter(singleCountry => singleCountry.continents[0] == continentValue);
-//     displayCountry();
-// }
+document.getElementById('sorts').onchange = () =>{
+    const sortValue = document.getElementById('sorts').value ;
+    if(sortValue == 'alphabetically'){
+        allCountriesShow.sort((x,y)=>{
+            return x.name.common.localeCompare(y.name.common);
+        });
+    }else if(sortValue == 'area'){
+        allCountriesShow.sort((x,y)=>{
+            return +x.area - +y.area;
+        });
+    }else if(sortValue == 'population'){
+        allCountriesShow.sort((x,y)=>{
+            return +x.population - +y.population;
+        });
+    }else if(sortValue == 'density'){
+        allCountriesShow.sort((x,y)=>{
+            return (+x.area / +x.population) - (+y.area / +y.population);
+        });
+    }
+    displayCountry();
+}
 
 
 const displayCountryDetails = data => {
@@ -91,7 +112,7 @@ function showModal(data) {
                     ${languagesDiv(languages)}
                 </div>
             </div>
-            <p><strong>Area:</strong> ${area}<sup>2</sup> Meter</p>
+            <p><strong>Area:</strong> ${area}<sup>2</sup> KM</p>
             <p><strong>Population:</strong> ${population} </p>
             <p><strong>Continent:</strong> ${continents[0]} </p>
             <a href="${maps.googleMaps}" target = "_black"><Button class="mapBtn"><i class="fa-solid fa-map-location-dot"></i></Button></a>
