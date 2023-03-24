@@ -7,40 +7,66 @@
     <title>Country Details</title>
     <!-- favIcon -->
     <link rel="shortcut icon" href="./image/favIcon.png" type="image/x-icon">
+    <!-- font woesome -->
+    <script src="https://kit.fontawesome.com/4206d5dcf6.js" crossorigin="anonymous"></script>
     <!-- style -->
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <section>
+    <section class="home-section">
         <div class="container">
-            <div id="details">
-                
+            <div class="container">
+                <div id="details">
+                    
+                </div>
+            </div>
+            <div class="searchBox" >
+                <label for="searchInput"></label>
+                <input type="text" id="searchInput">
+                <label for="searchBtn"></label>
+                <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div> 
+            <div class="options">
+                <select name="continent" id="continent">
+                    <option value="">Select Continent</option>
+                    <option value="All">All</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Europe">Europe</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Antarctica">Antarctica</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+                <select name="sorts" id="sorts">
+                    <option value="">Sort Countries</option>
+                    <option value="All">All</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Europe">Europe</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Antarctica">Antarctica</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
             </div>
         </div>
-        <select name="continent" id="continent">
-            <option value="">Select Continent</option>
-            <option value="Asia">Asia</option>
-            <option value="Africa">Africa</option>
-            <option value="Europe">Europe</option>
-            <option value="North America">North America</option>
-            <option value="South America">South America</option>
-            <option value="Antarctica">Antarctica</option>
-            <option value="Oceania">Oceania</option>
-        </select>
     </section>
     <section>
         <div class="container">
-            <div id="allCountries">
-                
+            <div class="container">
+                <div id="allCountries">
+                    
+                </div>
             </div>
-        </div>
-        <div class="buttons">
-            <button class="showMoreBtn" id="showMoreBtn">
-                Show More
-            </button>
-            <button class="showLessBtn" id="showLessBtn" style="display: none;">
-                Show Less
-            </button>
+            <div class="buttons">
+                <button class="showMoreBtn" id="showMoreBtn">
+                    Show More
+                </button>
+                <button class="showLessBtn" id="showLessBtn" style="display: none;">
+                    Show Less
+                </button>
+            </div>
         </div>
     </section>
 

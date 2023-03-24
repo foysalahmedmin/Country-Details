@@ -9,10 +9,61 @@
 body{
     background-color: #bbbbbb;
 }
+.container{
+    max-width: 1140px;
+    margin: 0 auto;
+}
 section{
     padding: 50px 2.5%;
 }
-button{
+/* home section */
+.home-section{
+    background-image: url(../image/world-map.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+.home-section .container{
+    text-align: center;
+}
+.searchBox{
+    background-color: #ffffff7f;
+    margin: 0 auto;
+    max-width: 50rem;
+    display: flex;
+    margin-bottom: 1rem;
+    box-shadow: 0 9px 15px -10px #ffffff7f;
+    
+}
+.searchBox #searchInput{
+    padding: .5rem;
+    width: 100%;
+    background-color: transparent;
+}
+.searchBox #searchBtn{
+    padding: .5rem;
+    width: 3rem;
+    background-color: transparent;
+}
+.options{
+    max-width: 50rem;
+    margin: 0 auto;
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+}
+.options select{
+    background-color: #ffffff7f;
+    padding: .5rem;
+    flex: 1;
+    box-shadow: 0 9px 15px -10px #ffffff7f;
+}
+.options select > option{
+    background-color: #ffffff7f;
+}
+/* home section end */
+.details-button{
     background: #4aabdf;
     color: white;
     font-weight: bold ;
@@ -21,10 +72,6 @@ button{
     margin-top: 1rem;
     cursor: pointer;
 }
-#details{
-    text-align: center;
-}
-
 #allCountries{
     display: flex;
     align-items: center;
@@ -33,6 +80,7 @@ button{
     gap: .7rem ;
 }
 #allCountries .country {
+    flex-grow: 1;
     width: 20rem;
     text-align: center;
     padding: 1rem;
@@ -40,20 +88,29 @@ button{
     border-radius: .5rem ;
     box-shadow: 0 9px 15px -10px;
 }
-#allCountries .country .image {
+#allCountries .country .flag-image {
     height: 11rem;
     overflow: hidden;
     margin-bottom: 1rem;
 }
-#allCountries .country .image img {
+#allCountries .country .flag-image img {
     height: 100%;
 }
 .buttons{
     text-align: center;
-    color: white;
 }
 .showMoreBtn, .showLessBtn{
-    padding: 7px 12px;
+    padding: 1rem 2rem;
+    box-shadow: 0 9px 15px -10px ;
+    margin-top: 2rem;
+    border-radius: .5rem;
+    font-weight: 700;
+}
+.showMoreBtn{
+    background-color: white;
+    color: black;
+}
+.showLessBtn{
     background-color: black;
-    border-radius: 5px;
+    color: white;
 }

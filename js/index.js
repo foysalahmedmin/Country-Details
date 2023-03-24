@@ -1,5 +1,6 @@
 let displayQuantity = 6 ;
 let allCountries;
+let allCountriesShow;
 
 
 const loadCountry = () => {
@@ -7,25 +8,27 @@ const loadCountry = () => {
     .then(res => res.json())
     .then(json => {
         allCountries = json;
+        allCountriesShow = json;
+        console.log(allCountriesShow);
         displayCountry();
     });
 }
 
 const displayCountry = () => {
     const countriesField = document.getElementById("allCountries")
-    countriesField.innerHTML = allCountries.map(country => singleCountry(country)).slice(0, displayQuantity).join(" ")
+    countriesField.innerHTML = allCountriesShow.map(country => singleCountry(country)).slice(0, displayQuantity).join(" ")
 }
 
 const singleCountry = ({name, capital, flags, cca3}) => {
 
     return (
         `<div class = "country">
-            <div class = "image"> <img src = "${flags.png}"> </div>
+            <div class = "flag-image"> <img src = "${flags.png}"> </div>
             <h3>
-                Name: ${name.common};
+                ${name.common}
             </h3>
             <p> Capital: ${capital ? capital[0] : "No Capital"} </p>
-            <button onclick = "displayCountryDetails('${cca3}')"> Details </button>
+            <button class="details-button" onclick = "displayCountryDetails('${cca3}')"> Details </button>
         </div>`
     )
 
@@ -50,15 +53,15 @@ const displayCountryDetails = data => {
 }
 
 document.getElementById("showMoreBtn").onclick = () => {
-    displayQuantity += 100 ;
-    if(displayQuantity >= allCountries.length){
+    displayQuantity += 9 ;
+    if(displayQuantity >= allCountriesShow.length){
         document.getElementById("showMoreBtn").style.display = 'none' ;
         document.getElementById("showLessBtn").style.display = 'inline-block' ;
     }
     displayCountry();
 }
 document.getElementById("showLessBtn").onclick = () => {
-    displayQuantity -= 100 ;
+    displayQuantity -= 9 ;
     if(displayQuantity <= 6){
         displayQuantity = 6 ;
         document.getElementById("showMoreBtn").style.display = 'inline-block' ;
@@ -69,7 +72,8 @@ document.getElementById("showLessBtn").onclick = () => {
 
 document.getElementById('continent').onchange = () =>{
     const continentValue = document.getElementById('continent').value ;
-    console.log(continentValue);
+    allCountriesShow = allCountries.filter(singleCountry => singleCountry.continents[0] == continentValue);
+    displayCountry();
 }
 
 loadCountry() ;
