@@ -14,7 +14,7 @@ body{
     margin: 0 auto;
 }
 section{
-    padding: 50px 2.5%;
+    padding: 3.5rem 2.5%;
 }
 /* home section */
 .home-section{
@@ -211,5 +211,8 @@ section{
 }
 
 footer{
-    height: 50vh;
+    text-align: center;
+    background-color: #000;
+    padding: 2.5rem;
+    color: #fff;
 }

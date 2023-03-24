@@ -1,4 +1,4 @@
-let displayQuantity = 6 ;
+let displayQuantity = 9 ;
 let allCountries;
 let allCountriesShow;
 
@@ -32,6 +32,24 @@ const singleCountry = ({name, capital, flags, cca3}) => {
     )
 
 }
+document.getElementById('searchBtn').onclick = () =>{
+    const searchValue = document.getElementById('searchInput').value ;
+    allCountriesShow = allCountries.filter(singleCountry => singleCountry.name.common.toLowerCase().includes(searchValue));
+    displayCountry();
+}
+
+document.getElementById('continent').onchange = () =>{
+    const continentValue = document.getElementById('continent').value ;
+    allCountriesShow = allCountries.filter(singleCountry => singleCountry.continents[0] == continentValue);
+    displayCountry();
+}
+
+// document.getElementById('continent').onchange = () =>{
+//     const continentValue = document.getElementById('continent').value ;
+//     allCountriesShow = allCountries.filter(singleCountry => singleCountry.continents[0] == continentValue);
+//     displayCountry();
+// }
+
 
 const displayCountryDetails = data => {
 
@@ -51,33 +69,6 @@ const displayCountryDetails = data => {
 
 }
 
-document.getElementById("showMoreBtn").onclick = () => {
-    displayQuantity += 9 ;
-    if(displayQuantity >= allCountriesShow.length){
-        document.getElementById("showMoreBtn").style.display = 'none' ;
-        document.getElementById("showLessBtn").style.display = 'inline-block' ;
-    }
-    displayCountry();
-}
-document.getElementById("showLessBtn").onclick = () => {
-    displayQuantity -= 9 ;
-    if(displayQuantity <= 6){
-        displayQuantity = 6 ;
-        document.getElementById("showMoreBtn").style.display = 'inline-block' ;
-        document.getElementById("showLessBtn").style.display = 'none' ;
-    }
-    displayCountry();
-}
-
-document.getElementById('continent').onchange = () =>{
-    const continentValue = document.getElementById('continent').value ;
-    allCountriesShow = allCountries.filter(singleCountry => singleCountry.continents[0] == continentValue);
-    displayCountry();
-}
-
-loadCountry() ;
-
-
 const modal = document.getElementById("detailsModal");
 const modalClose = document.getElementById("close");
 
@@ -94,8 +85,11 @@ function showModal(data) {
                 ${name.common}
             </h2><br>
             <p><strong>Capital:</strong> ${capital ? capital[0] : "No Capital"} </p>
-            <div class="languages">
-                ${languagesDiv(languages)}
+            <div>
+                <strong>Language:</strong>
+                <div class="languages">
+                    ${languagesDiv(languages)}
+                </div>
             </div>
             <p><strong>Area:</strong> ${area}<sup>2</sup> Meter</p>
             <p><strong>Population:</strong> ${population} </p>
@@ -103,8 +97,8 @@ function showModal(data) {
             <a href="${maps.googleMaps}" target = "_black"><Button class="mapBtn"><i class="fa-solid fa-map-location-dot"></i></Button></a>
         </div>
     `
-  }
-  const languagesDiv = (languages) =>{
+}
+const languagesDiv = (languages) =>{
     console.log(languages);
     let div = '';
     for(let lang in languages){
@@ -112,16 +106,34 @@ function showModal(data) {
     }
     console.log(div);
     return div ;
-  }
-
-// When the user clicks on <span> (x), close the modal
+}
 modalClose.onclick = () => {
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = (event) => {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
+
+
+document.getElementById("showMoreBtn").onclick = () => {
+    displayQuantity += 9 ;
+    if(displayQuantity >= allCountriesShow.length){
+        document.getElementById("showMoreBtn").style.display = 'none' ;
+        document.getElementById("showLessBtn").style.display = 'inline-block' ;
+    }
+    displayCountry();
+}
+document.getElementById("showLessBtn").onclick = () => {
+    displayQuantity -= 9 ;
+    if(displayQuantity <= 9){
+        displayQuantity = 9 ;
+        document.getElementById("showMoreBtn").style.display = 'inline-block' ;
+        document.getElementById("showLessBtn").style.display = 'none' ;
+    }
+    displayCountry();
+}
+
+loadCountry() ;
