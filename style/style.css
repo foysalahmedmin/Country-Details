@@ -23,9 +23,17 @@ section{
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
+    height: 75vh;
 }
 .home-section .container{
     text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-section .container .home-container{
+    width: 100%;
 }
 .searchBox{
     background-color: #ffffff7f;
@@ -45,6 +53,10 @@ section{
     padding: .5rem;
     width: 3rem;
     background-color: transparent;
+    cursor: pointer;
+}
+.searchBox #searchBtn:hover .fa-magnifying-glass{
+    color: #4aabdf ;
 }
 .options{
     max-width: 50rem;
@@ -113,4 +125,91 @@ section{
 .showLessBtn{
     background-color: black;
     color: white;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: #00000075;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+  
+  /* Modal Content */
+.modal-content {
+    position: fixed;
+    transform: translateY(50%);
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fefefe;
+    width: 50rem;
+    overflow: hidden;
+    border-radius: .5rem;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.modal-body {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #bbbbbb;
+}
+.languages{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.mapBtn{
+    padding: .5rem 2rem;
+    color: #fff;
+    background-color: #4aabdf;
+    border-radius: .5rem;
+    margin: 1rem 0;
+}
+
+.close {
+    color: #000000;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #4aabdf;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 50%; opacity: 1; transform: translateY(50%);}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+footer{
+    height: 50vh;
 }

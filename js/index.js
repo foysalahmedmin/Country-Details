@@ -9,7 +9,6 @@ const loadCountry = () => {
     .then(json => {
         allCountries = json;
         allCountriesShow = json;
-        console.log(allCountriesShow);
         displayCountry();
     });
 }
@@ -28,7 +27,7 @@ const singleCountry = ({name, capital, flags, cca3}) => {
                 ${name.common}
             </h3>
             <p> Capital: ${capital ? capital[0] : "No Capital"} </p>
-            <button class="details-button" onclick = "displayCountryDetails('${cca3}')"> Details </button>
+            <button class="details-button" onclick = "showModal('${cca3}')"> Details </button>
         </div>`
     )
 
@@ -77,3 +76,52 @@ document.getElementById('continent').onchange = () =>{
 }
 
 loadCountry() ;
+
+
+const modal = document.getElementById("detailsModal");
+const modalClose = document.getElementById("close");
+
+function showModal(data) {
+    modal.style.display = "block";
+    const detailsField = document.getElementById("details");
+    const thisCountry = allCountries.filter(singleCountry => singleCountry.cca3 == data)[0] ;
+    let {name, capital, flags, area, population, continents, languages, maps} = thisCountry ;
+    console.log(thisCountry);
+    detailsField.innerHTML = `
+        <div>
+            <div class = "image"> <img src = "${flags.png}"> </div>
+            <h2>
+                ${name.common}
+            </h2><br>
+            <p><strong>Capital:</strong> ${capital ? capital[0] : "No Capital"} </p>
+            <div class="languages">
+                ${languagesDiv(languages)}
+            </div>
+            <p><strong>Area:</strong> ${area}<sup>2</sup> Meter</p>
+            <p><strong>Population:</strong> ${population} </p>
+            <p><strong>Continent:</strong> ${continents[0]} </p>
+            <a href="${maps.googleMaps}" target = "_black"><Button class="mapBtn"><i class="fa-solid fa-map-location-dot"></i></Button></a>
+        </div>
+    `
+  }
+  const languagesDiv = (languages) =>{
+    console.log(languages);
+    let div = '';
+    for(let lang in languages){
+        div += `<div>${languages[lang]}</div>`
+    }
+    console.log(div);
+    return div ;
+  }
+
+// When the user clicks on <span> (x), close the modal
+modalClose.onclick = () => {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

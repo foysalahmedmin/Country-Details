@@ -15,40 +15,37 @@
 <body>
     <section class="home-section">
         <div class="container">
-            <div class="container">
-                <div id="details">
-                    
+            <div class="home-container">
+                <div class="searchBox" >
+                    <label for="searchInput"></label>
+                    <input type="text" id="searchInput">
+                    <label for="searchBtn"></label>
+                    <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div> 
+                <div class="options">
+                    <select name="continent" id="continent">
+                        <option value="">Select Continent</option>
+                        <option value="All">All</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Europe">Europe</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Antarctica">Antarctica</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                    <select name="sorts" id="sorts">
+                        <option value="">Sort Countries</option>
+                        <option value="All">All</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Europe">Europe</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Antarctica">Antarctica</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
                 </div>
-            </div>
-            <div class="searchBox" >
-                <label for="searchInput"></label>
-                <input type="text" id="searchInput">
-                <label for="searchBtn"></label>
-                <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div> 
-            <div class="options">
-                <select name="continent" id="continent">
-                    <option value="">Select Continent</option>
-                    <option value="All">All</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Europe">Europe</option>
-                    <option value="North America">North America</option>
-                    <option value="South America">South America</option>
-                    <option value="Antarctica">Antarctica</option>
-                    <option value="Oceania">Oceania</option>
-                </select>
-                <select name="sorts" id="sorts">
-                    <option value="">Sort Countries</option>
-                    <option value="All">All</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Europe">Europe</option>
-                    <option value="North America">North America</option>
-                    <option value="South America">South America</option>
-                    <option value="Antarctica">Antarctica</option>
-                    <option value="Oceania">Oceania</option>
-                </select>
             </div>
         </div>
     </section>
@@ -69,6 +66,26 @@
             </div>
         </div>
     </section>
+
+    <!-- The Modal -->
+    <div id="detailsModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Country Details</h3>
+                <span id="close" class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="details"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <footer>
+        
+    </footer>
 
 
 
