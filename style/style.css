@@ -23,7 +23,7 @@ section{
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
-    height: 75vh;
+    height: 35rem;
 }
 .home-section .container{
     text-align: center;
@@ -216,3 +216,36 @@ footer{
     padding: 2.5rem;
     color: #fff;
 }
+
+.loadingPlace {
+    text-align: center;
+    margin: 2rem auto;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+.loadingPlace .loading-spin {
+    margin: auto;
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+    border-radius: 9999px;
+    border-top: 3px solid black;
+    /* background-color: red; */
+    margin-right: 0.5rem;
+    animation: spin .5s linear infinite;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@media (max-width: 992px) { 
+    .modal-content{
+        width: 97%;
+    }
+
+ }
